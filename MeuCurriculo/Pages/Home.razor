@@ -1,0 +1,65 @@
+﻿@page "/"
+
+<PageTitle>Currículo | Gustavo Fernandes</PageTitle>
+
+<div class="container py-4">
+    <div class="row">
+        <div class="col-lg-4">
+            <div class="text-center p-4 bg-light rounded-3 mb-4">
+                <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=Gustavo" 
+                     class="rounded-circle mb-3" width="120" />
+
+                <h3>Gustavo Fernandes</h3>
+                <p class="text-muted">Estudante de ADS | Futuro Engenheiro de Software</p>
+
+                <p class="small mt-3">
+                    Buscando migrar para a área de tecnologia com foco em desenvolvimento de software e banco de dados.
+                </p>
+            </div>
+        </div>
+
+        <div class="col-lg-8">
+            <h2 class="mb-4">Experiência Profissional</h2>
+
+            @foreach (var exp in MinhasExperiencias)
+            {
+                <ExperienciaCard Dados="exp" />
+            }
+
+            <h2 class="mt-5 mb-4">Objetivo</h2>
+            <p>
+                Atuar como desenvolvedor de software, preferencialmente no setor bancário, 
+                contribuindo com soluções eficientes, seguras e escaláveis.
+            </p>
+        </div>
+    </div>
+</div>
+
+@code {
+    private List<Experiencia> MinhasExperiencias = new()
+    {
+        new Experiencia {
+            Empresa = "Sammetal Metalúrgica",
+            Cargo = "Programador CNC / PCP",
+            Inicio = "2023",
+            Fim = "Atual",
+            Descricao = "Atuação com programação CNC, controle de produção, organização de materiais, acompanhamento de processos e suporte operacional na área de estamparia e corte a laser."
+        },
+
+        new Experiencia {
+            Empresa = "Sammetal Metalúrgica",
+            Cargo = "Auxiliar de Produção",
+            Inicio = "2020",
+            Fim = "2023",
+            Descricao = "Experiência em processos produtivos, organização de linha de produção e suporte geral às operações industriais."
+        },
+
+        new Experiencia {
+            Empresa = "Projetos Pessoais",
+            Cargo = "Estudante de Tecnologia",
+            Inicio = "2024",
+            Fim = "Atual",
+            Descricao = "Desenvolvimento de projetos em C#, .NET e estudos em redes, banco de dados e cibersegurança."
+        }
+    };
+}
